@@ -14,8 +14,17 @@ spec:
       labels:
         app: blog-app
     spec:
+      automountServiceAccountToken: false
       containers:
       - name: blog-app
-        image: boubdirayman/devops-blog-app:latest
+        image: boubdirayman/devops-blog-app:1.0.0
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+            ephemeral-storage: "128Mi"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
